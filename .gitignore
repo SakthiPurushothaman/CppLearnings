@@ -1,0 +1,25 @@
+# Build directories
+/build/
+/out/
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+CMakeUserPresets.json
+CMakeToolchain.cmake
+
+# Conan-related files
+.conan/
+conan.lock
+conanfile.pyc
+
+# IDE files
+.vscode/
+.idea/
+
+# Log files
+*.log
+
+# OS-specific files
+.DS_Store        # macOS
+Thumbs.db        # Windows
