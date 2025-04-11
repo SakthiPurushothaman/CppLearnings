@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 3.16)
 project(MyProject)
 
 # FetchContent for GoogleTest (optional if not using Conan)
-include(FetchContent)
-FetchContent_Declare(
-    googletest
-    GIT_REPOSITORY https://github.com/google/googletest.git
-    GIT_TAG release-1.11.0
-)
-FetchContent_MakeAvailable(googletest)
+# include(FetchContent)
+# FetchContent_Declare(
+#     googletest
+#     GIT_REPOSITORY https://github.com/google/googletest.git
+#     GIT_TAG release-1.11.0
+# )
+# FetchContent_MakeAvailable(googletest)
 
 # Include the Conan toolchain before defining targets
 include(${CMAKE_BINARY_DIR}/conan_toolchain.cmake)
@@ -36,8 +36,8 @@ endif()
 add_custom_target(
     coverage    
     COMMAND ./my_tests
-    COMMAND lcov --capture --directory . --output-file coverage.info
-    COMMAND genhtml --rc geninfo_unexecuted_blocks=1 --ignore-errors mismatch coverage.info --output-directory out
+    COMMAND lcov --capture --directory test --output-file coverage.info
+    COMMAND genhtml coverage.info --output-directory out --rc geninfo_unexecuted_blocks=1 --ignore-errors mismatch
     DEPENDS my_tests
 )
 
